@@ -10,3 +10,15 @@ C:\00 - Projetos\luby-tasks\back-end\LubyTasks\LubyTask.Domain\obj\Debug\netcore
 C:\00 - Projetos\luby-tasks\back-end\LubyTasks\LubyTask.Domain\obj\Debug\netcoreapp3.1\LubyTask.Domain.csproj.CopyComplete
 C:\00 - Projetos\luby-tasks\back-end\LubyTasks\LubyTask.Domain\obj\Debug\netcoreapp3.1\LubyTask.Domain.dll
 C:\00 - Projetos\luby-tasks\back-end\LubyTasks\LubyTask.Domain\obj\Debug\netcoreapp3.1\LubyTask.Domain.pdb
+C:\00 - Projetos\luby_tasks\api\LubyTask.Domain\bin\Debug\netcoreapp3.1\LubyTask.Domain.deps.json
+C:\00 - Projetos\luby_tasks\api\LubyTask.Domain\bin\Debug\netcoreapp3.1\LubyTask.Domain.dll
+C:\00 - Projetos\luby_tasks\api\LubyTask.Domain\bin\Debug\netcoreapp3.1\LubyTask.Domain.pdb
+C:\00 - Projetos\luby_tasks\api\LubyTask.Domain\bin\Debug\netcoreapp3.1\LubyTask.Entities.dll
+C:\00 - Projetos\luby_tasks\api\LubyTask.Domain\bin\Debug\netcoreapp3.1\LubyTask.Entities.pdb
+C:\00 - Projetos\luby_tasks\api\LubyTask.Domain\obj\Debug\netcoreapp3.1\LubyTask.Domain.csprojAssemblyReference.cache
+C:\00 - Projetos\luby_tasks\api\LubyTask.Domain\obj\Debug\netcoreapp3.1\LubyTask.Domain.csproj.CoreCompileInputs.cache
+C:\00 - Projetos\luby_tasks\api\LubyTask.Domain\obj\Debug\netcoreapp3.1\LubyTask.Domain.AssemblyInfoInputs.cache
+C:\00 - Projetos\luby_tasks\api\LubyTask.Domain\obj\Debug\netcoreapp3.1\LubyTask.Domain.AssemblyInfo.cs
+C:\00 - Projetos\luby_tasks\api\LubyTask.Domain\obj\Debug\netcoreapp3.1\LubyTask.Domain.csproj.CopyComplete
+C:\00 - Projetos\luby_tasks\api\LubyTask.Domain\obj\Debug\netcoreapp3.1\LubyTask.Domain.dll
+C:\00 - Projetos\luby_tasks\api\LubyTask.Domain\obj\Debug\netcoreapp3.1\LubyTask.Domain.pdb
