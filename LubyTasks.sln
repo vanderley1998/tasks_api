@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LubyTasks.API", "LubyTasks\LubyTasks.API.csproj", "{4261DABA-E9D0-4E9D-B5EB-648F909176FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer", "IdentityServer", "{BCDA8536-78FF-47AC-8E16-D4F937D5E602}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LubyTask", "LubyTask", "{388F074C-9D0D-461B-9009-BD4167068A40}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LubyTask.Domain", "LubyTask.Domain\LubyTask.Domain.csproj", "{68C4E9A6-E692-42C8-B904-4166D8C5338D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentyServer.API", "LubyTasks.IdentyServer\IdentyServer.API.csproj", "{E1C886BE-C82A-4097-B8C8-B19360E9F838}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer.Domain", "IdentityServer.Domain\IdentityServer.Domain.csproj", "{284B5F83-FE42-404A-BE44-94B09A4DAE22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4261DABA-E9D0-4E9D-B5EB-648F909176FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4261DABA-E9D0-4E9D-B5EB-648F909176FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4261DABA-E9D0-4E9D-B5EB-648F909176FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4261DABA-E9D0-4E9D-B5EB-648F909176FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68C4E9A6-E692-42C8-B904-4166D8C5338D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68C4E9A6-E692-42C8-B904-4166D8C5338D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68C4E9A6-E692-42C8-B904-4166D8C5338D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68C4E9A6-E692-42C8-B904-4166D8C5338D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1C886BE-C82A-4097-B8C8-B19360E9F838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1C886BE-C82A-4097-B8C8-B19360E9F838}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1C886BE-C82A-4097-B8C8-B19360E9F838}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1C886BE-C82A-4097-B8C8-B19360E9F838}.Release|Any CPU.Build.0 = Release|Any CPU
+		{284B5F83-FE42-404A-BE44-94B09A4DAE22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{284B5F83-FE42-404A-BE44-94B09A4DAE22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{284B5F83-FE42-404A-BE44-94B09A4DAE22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{284B5F83-FE42-404A-BE44-94B09A4DAE22}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4261DABA-E9D0-4E9D-B5EB-648F909176FB} = {388F074C-9D0D-461B-9009-BD4167068A40}
+		{68C4E9A6-E692-42C8-B904-4166D8C5338D} = {388F074C-9D0D-461B-9009-BD4167068A40}
+		{E1C886BE-C82A-4097-B8C8-B19360E9F838} = {BCDA8536-78FF-47AC-8E16-D4F937D5E602}
+		{284B5F83-FE42-404A-BE44-94B09A4DAE22} = {BCDA8536-78FF-47AC-8E16-D4F937D5E602}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {199051AA-E55A-4307-BC85-08CED1D4E237}
+	EndGlobalSection
+EndGlobal
