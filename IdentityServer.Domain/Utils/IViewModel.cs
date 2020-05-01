@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace IdentityServer.Domain.Utils
+namespace LubyTasks.Domain.Utils
 {
     public interface IViewModel
     {

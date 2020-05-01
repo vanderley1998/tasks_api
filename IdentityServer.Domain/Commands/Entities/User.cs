@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace IdentyServer.Domain.Commands.Auth.Entities
+namespace LubyTasks.Domain.Commands.Auth.Entities
 {
     public class User
     {

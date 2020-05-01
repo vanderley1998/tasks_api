@@ -4,7 +4,7 @@ using System;
 using System.Net;
 using System.Reflection;
 
-namespace IdentityServer.API.Filters
+namespace LubyTasks.API.Filters
 {
     public class StatusRequestFilter : IResultFilter
     {

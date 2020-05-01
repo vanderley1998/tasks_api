@@ -1,20 +1,20 @@
 ﻿using Dapper;
-using IdentityServer.Domain;
-using IdentyServer.Domain.Queries.ViewModels;
-using IdentyServer.Domain.Utils;
+using LubyTasks.Domain;
+using LubyTasks.Domain.Queries.ViewModels;
+using LubyTasks.Domain.Utils;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace LubyTasks.IdentyServer.Queries.Auth
+namespace LubyTasks.LubyTasks.Queries.Auth
 {
     public class GetAuthQuery : IOperation<CredentialUser>
     {
         public string Login { get; set; }
         public string Password { get; set; }
 
-        public async Task<OperationResult<CredentialUser>> ExecuteOperationAsync(IdentityServerHandler handler)
+        public async Task<OperationResult<CredentialUser>> ExecuteOperationAsync(LubyTasksHandler handler)
         {
             var sql = @"
                 select u.id, u.login, u.password
@@ -23,7 +23,7 @@ namespace LubyTasks.IdentyServer.Queries.Auth
                 and u.removed=0
             ";
 
-            var conn = handler.IdentityServerContext.Database.GetDbConnection();
+            var conn = handler.LubyTasksContext.Database.GetDbConnection();
             var result = await conn.QueryAsync<CredentialUser>(sql, new { Login, Password });
             if(result.Count() == 0)
                 return new OperationResult<CredentialUser>(HttpStatusCode.NotFound, result);
@@ -31,7 +31,7 @@ namespace LubyTasks.IdentyServer.Queries.Auth
             return new OperationResult<CredentialUser>(HttpStatusCode.OK, result);
         }
 
-        public async Task<OperationResult<CredentialUser>> GetError(IdentityServerHandler handler)
+        public async Task<OperationResult<CredentialUser>> GetError(LubyTasksHandler handler)
         {
             if (string.IsNullOrWhiteSpace(Login))
                 return new OperationResult<CredentialUser>(HttpStatusCode.BadRequest, $"Parameter {nameof(Login) } is null or empty");

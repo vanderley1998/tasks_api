@@ -1,6 +1,6 @@
-using IdentityServer.API.Filters;
-using IdentityServer.Domain;
-using IdentityServer.Domain.Utils;
+using LubyTasks.API.Filters;
+using LubyTasks.Domain;
+using LubyTasks.Domain.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -26,12 +26,12 @@ namespace LubyTasks.IdentyServer
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<IdentityServerDbContext>(options =>
+            services.AddDbContext<LubyTasksDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddScoped<IdentityServerHandler>();
+            services.AddScoped<LubyTasksHandler>();
             services.AddScoped<StatusRequestFilter>();
             services.AddServerSideBlazor(o => o.DetailedErrors = true);
             services.AddControllers();

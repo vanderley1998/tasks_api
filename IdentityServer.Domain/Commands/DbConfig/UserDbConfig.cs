@@ -1,9 +1,9 @@
-﻿using IdentyServer.Domain.Commands.Auth.Entities;
+﻿using LubyTasks.Domain.Commands.Auth.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 
-namespace IdentityServer.Domain.Commands.DbConfig
+namespace LubyTasks.Domain.Commands.DbConfig
 {
     public class UserDbConfig : IEntityTypeConfiguration<User>
     {

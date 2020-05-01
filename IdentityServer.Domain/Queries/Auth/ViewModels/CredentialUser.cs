@@ -1,7 +1,7 @@
-﻿using IdentityServer.Domain.Utils;
+﻿using LubyTasks.Domain.Utils;
 using System;
 
-namespace IdentyServer.Domain.Queries.ViewModels
+namespace LubyTasks.Domain.Queries.ViewModels
 {
     public class CredentialUser : IViewModel
     {

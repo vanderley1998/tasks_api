@@ -1,29 +1,29 @@
-﻿using IdentityServer.API.Filters;
-using IdentityServer.Domain;
-using IdentityServer.Domain.Utils;
-using LubyTasks.IdentyServer.Queries.Auth;
+﻿using LubyTasks.API.Filters;
+using LubyTasks.Domain;
+using LubyTasks.Domain.Utils;
+using LubyTasks.LubyTasks.Queries.Auth;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LubyTasks.IdentyServer.Controllers
+namespace LubyTasks.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     [ServiceFilter(typeof(StatusRequestFilter))]
     public class AuthController : ControllerBase
     {
-        private readonly IdentityServerHandler _identityServerHandler;
+        private readonly LubyTasksHandler _lubyTasksHandler;
 
-        public AuthController(IdentityServerHandler handler)
+        public AuthController(LubyTasksHandler handler)
         {
-            _identityServerHandler = handler;
+            _lubyTasksHandler = handler;
         }
 
         [HttpPost]
         public async Task<object> GetToken([FromBody] GetAuthQuery query)
         {
-            var result = await _identityServerHandler.ExecuteAsync(query);
+            var result = await _lubyTasksHandler.ExecuteAsync(query);
             var token = Authentication.GetToken(result.Data.FirstOrDefault());
             return result.GetResult(token);
         }

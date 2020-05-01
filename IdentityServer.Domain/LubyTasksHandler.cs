@@ -1,15 +1,15 @@
-﻿using IdentyServer.Domain.Utils;
+﻿using LubyTasks.Domain.Utils;
 using System.Threading.Tasks;
 
-namespace IdentityServer.Domain
+namespace LubyTasks.Domain
 {
-    public class IdentityServerHandler
+    public class LubyTasksHandler
     {
-        public readonly IdentityServerDbContext IdentityServerContext;
+        public readonly LubyTasksDbContext LubyTasksContext;
 
-        public IdentityServerHandler(IdentityServerDbContext identityServerDb)
+        public LubyTasksHandler(LubyTasksDbContext LubyTasksDb)
         {
-            IdentityServerContext = identityServerDb;
+            LubyTasksContext = LubyTasksDb;
         }
 
         public async Task<OperationResult<T>> ExecuteAsync<T>(IOperation<T> operation)

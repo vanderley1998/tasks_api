@@ -3,17 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer", "IdentityServer", "{BCDA8536-78FF-47AC-8E16-D4F937D5E602}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LubyTasks", "LubyTasks", "{BCDA8536-78FF-47AC-8E16-D4F937D5E602}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LubyTask", "LubyTask", "{388F074C-9D0D-461B-9009-BD4167068A40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LubyTasks.Domain", "IdentityServer.Domain\LubyTasks.Domain.csproj", "{284B5F83-FE42-404A-BE44-94B09A4DAE22}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LubyTask.Domain", "LubyTask.Domain\LubyTask.Domain.csproj", "{68C4E9A6-E692-42C8-B904-4166D8C5338D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer.Domain", "IdentityServer.Domain\IdentityServer.Domain.csproj", "{284B5F83-FE42-404A-BE44-94B09A4DAE22}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentyServer.API", "IdentyServer.API\IdentyServer.API.csproj", "{D38B92B6-7710-4CD7-8E4B-A5D35D160885}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LubyTasks.API", "LubyTasks.API\LubyTasks.API.csproj", "{639045A5-8C76-4CE4-897F-3E926B6F5679}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LubyTasks.API", "IdentyServer.API\LubyTasks.API.csproj", "{D38B92B6-7710-4CD7-8E4B-A5D35D160885}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{68C4E9A6-E692-42C8-B904-4166D8C5338D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{68C4E9A6-E692-42C8-B904-4166D8C5338D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{68C4E9A6-E692-42C8-B904-4166D8C5338D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{68C4E9A6-E692-42C8-B904-4166D8C5338D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{284B5F83-FE42-404A-BE44-94B09A4DAE22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{284B5F83-FE42-404A-BE44-94B09A4DAE22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{284B5F83-FE42-404A-BE44-94B09A4DAE22}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,19 +23,13 @@ Global
 		{D38B92B6-7710-4CD7-8E4B-A5D35D160885}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D38B92B6-7710-4CD7-8E4B-A5D35D160885}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D38B92B6-7710-4CD7-8E4B-A5D35D160885}.Release|Any CPU.Build.0 = Release|Any CPU
-		{639045A5-8C76-4CE4-897F-3E926B6F5679}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{639045A5-8C76-4CE4-897F-3E926B6F5679}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{639045A5-8C76-4CE4-897F-3E926B6F5679}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{639045A5-8C76-4CE4-897F-3E926B6F5679}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{68C4E9A6-E692-42C8-B904-4166D8C5338D} = {388F074C-9D0D-461B-9009-BD4167068A40}
 		{284B5F83-FE42-404A-BE44-94B09A4DAE22} = {BCDA8536-78FF-47AC-8E16-D4F937D5E602}
 		{D38B92B6-7710-4CD7-8E4B-A5D35D160885} = {BCDA8536-78FF-47AC-8E16-D4F937D5E602}
-		{639045A5-8C76-4CE4-897F-3E926B6F5679} = {388F074C-9D0D-461B-9009-BD4167068A40}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {199051AA-E55A-4307-BC85-08CED1D4E237}

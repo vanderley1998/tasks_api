@@ -1,11 +1,10 @@
-﻿using IdentityServer.Domain;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
-namespace IdentyServer.Domain.Utils
+namespace LubyTasks.Domain.Utils
 {
     public interface IOperation<T>
     {
-        public Task<OperationResult<T>> GetError(IdentityServerHandler handler);
-        public Task<OperationResult<T>> ExecuteOperationAsync(IdentityServerHandler handler);
+        public Task<OperationResult<T>> GetError(LubyTasksHandler handler);
+        public Task<OperationResult<T>> ExecuteOperationAsync(LubyTasksHandler handler);
     }
 }

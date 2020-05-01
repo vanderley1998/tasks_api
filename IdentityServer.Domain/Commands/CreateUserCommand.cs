@@ -1,19 +1,18 @@
-﻿using IdentityServer.Domain.Utils;
-using IdentyServer.Domain.Commands.Auth.Entities;
-using IdentyServer.Domain.Utils;
+﻿using LubyTasks.Domain.Commands.Auth.Entities;
+using LubyTasks.Domain.Utils;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace IdentityServer.Domain.Commands
+namespace LubyTasks.Domain.Commands
 {
     public class CreateUserCommand : IOperation<User>
     {
         public string Name { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public async Task<OperationResult<User>> ExecuteOperationAsync(IdentityServerHandler handler)
+        public async Task<OperationResult<User>> ExecuteOperationAsync(LubyTasksHandler handler)
         {
             var user = new User
             {
@@ -22,8 +21,8 @@ namespace IdentityServer.Domain.Commands
                 Password = Password
             };
 
-            handler.IdentityServerContext.Users.Add(user);
-            var result = await handler.IdentityServerContext.SaveChangesAsync();
+            handler.LubyTasksContext.Users.Add(user);
+            var result = await handler.LubyTasksContext.SaveChangesAsync();
             
             if(result == 0)
                 return new OperationResult<User>(HttpStatusCode.NotModified, result);
@@ -32,7 +31,7 @@ namespace IdentityServer.Domain.Commands
 
         }
 
-        public async Task<OperationResult<User>> GetError(IdentityServerHandler handler)
+        public async Task<OperationResult<User>> GetError(LubyTasksHandler handler)
         {
             if (string.IsNullOrWhiteSpace(Name))
                 return new OperationResult<User>(HttpStatusCode.BadRequest, $"Parameter {nameof(Name) } is required");
@@ -43,7 +42,7 @@ namespace IdentityServer.Domain.Commands
             if (string.IsNullOrWhiteSpace(Login))
                 return new OperationResult<User>(HttpStatusCode.BadRequest, $"Parameter {nameof(Login) } is required");
 
-            if(await handler.IdentityServerContext.Users.AnyAsync(u => u.Login == Login))
+            if(await handler.LubyTasksContext.Users.AnyAsync(u => u.Login == Login))
                 return new OperationResult<User>(HttpStatusCode.BadRequest, $"{nameof(Login) } {Login} already exists");
 
             if (string.IsNullOrWhiteSpace(Password))

@@ -1,10 +1,10 @@
-﻿using IdentyServer.Domain.Queries.ViewModels;
+﻿using LubyTasks.Domain.Queries.ViewModels;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
-namespace IdentityServer.Domain.Utils
+namespace LubyTasks.Domain.Utils
 {
     public static class Authentication
     {

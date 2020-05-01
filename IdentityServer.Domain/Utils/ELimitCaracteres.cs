@@ -1,4 +1,4 @@
-﻿namespace IdentityServer.Domain.Utils
+﻿namespace LubyTasks.Domain.Utils
 {
     enum ELimitCaracteres
     {

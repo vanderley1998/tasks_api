@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Net;
 
-namespace IdentyServer.Domain.Utils
+namespace LubyTasks.Domain.Utils
 {
     public class OperationResult<T>
     {
