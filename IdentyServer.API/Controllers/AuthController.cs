@@ -1,4 +1,5 @@
-﻿using IdentityServer.Domain;
+﻿using IdentityServer.API.Filters;
+using IdentityServer.Domain;
 using IdentityServer.Domain.Utils;
 using LubyTasks.IdentyServer.Queries.Auth;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ namespace LubyTasks.IdentyServer.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [ServiceFilter(typeof(StatusRequestFilter))]
     public class AuthController : ControllerBase
     {
         private readonly IdentityServerHandler _identityServerHandler;

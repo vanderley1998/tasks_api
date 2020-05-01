@@ -15,8 +15,8 @@ namespace IdentityServer.Domain.Utils
 
             var rights = new[]
             {
-                new Claim(nameof(user.Id), Convert.ToString(user.Id)),
-                new Claim(nameof(user.Login), user.Login)
+                new Claim(nameof(user.Id).ToLower(), Convert.ToString(user.Id)),
+                new Claim(nameof(user.Login).ToLower(), user.Login)
             };
 
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("WmZq4t7w!z$C&F)J@NcRfUjXn2r5u8x/"));

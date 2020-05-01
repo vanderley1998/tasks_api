@@ -1,3 +1,4 @@
+using IdentityServer.API.Filters;
 using IdentityServer.Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +30,7 @@ namespace LubyTasks.IdentyServer
             });
 
             services.AddScoped<IdentityServerHandler>();
+            services.AddScoped<StatusRequestFilter>();
             services.AddServerSideBlazor(o => o.DetailedErrors = true);
             services.AddControllers();
             services.AddAuthentication(options =>

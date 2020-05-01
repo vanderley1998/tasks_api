@@ -1,4 +1,5 @@
-﻿using IdentityServer.Domain;
+﻿using IdentityServer.API.Filters;
+using IdentityServer.Domain;
 using IdentityServer.Domain.Commands;
 using IdentyServer.Domain.Commands.Auth.Entities;
 using IdentyServer.Domain.Utils;
@@ -10,6 +11,7 @@ namespace IdentyServer.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [ServiceFilter(typeof(StatusRequestFilter))]
     public class UsersController : ControllerBase
     {
         private readonly IdentityServerHandler _identityServerHandler;

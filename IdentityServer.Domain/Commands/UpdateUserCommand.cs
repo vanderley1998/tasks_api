@@ -1,9 +1,9 @@
 ﻿using IdentityServer.Domain.Utils;
-using IdentyServer.Domain;
 using IdentyServer.Domain.Commands.Auth.Entities;
 using IdentyServer.Domain.Utils;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace IdentityServer.Domain.Commands
@@ -21,21 +21,21 @@ namespace IdentityServer.Domain.Commands
             var result = await handler.IdentityServerContext.SaveChangesAsync();
 
             if (result == 0)
-                return new OperationResult<User>(EErrorCode.UnsuccessfulOperation, result);
+                return new OperationResult<User>(HttpStatusCode.NotModified, result);
 
-            return new OperationResult<User>(EErrorCode.None, result);
+            return new OperationResult<User>(HttpStatusCode.OK, result);
         }
 
         public async Task<OperationResult<User>> GetError(IdentityServerHandler handler)
         {
             if (!string.IsNullOrWhiteSpace(Name) && Name.Length > Convert.ToInt32(ELimitCaracteres.Sort))
-                return new OperationResult<User>(EErrorCode.InvalidParams, $"Parameter {nameof(Name) } must be only {Convert.ToInt32(ELimitCaracteres.Sort)} caracteres");
+                return new OperationResult<User>(HttpStatusCode.BadRequest, $"Parameter {nameof(Name) } must be only {Convert.ToInt32(ELimitCaracteres.Sort)} caracteres");
 
             if (string.IsNullOrWhiteSpace(Login))
-                return new OperationResult<User>(EErrorCode.InvalidParams, $"Parameter {nameof(Login)} is required");
+                return new OperationResult<User>(HttpStatusCode.BadRequest, $"Parameter {nameof(Login)} is required");
 
             if (!(await handler.IdentityServerContext.Users.AnyAsync(u => u.Login == Login)))
-                return new OperationResult<User>(EErrorCode.InvalidParams, $"{nameof(Login) } {Login} does not exists");
+                return new OperationResult<User>(HttpStatusCode.BadRequest, $"{nameof(Login) } {Login} does not exists");
 
             return await Task.FromResult<OperationResult<User>>(null);
         }

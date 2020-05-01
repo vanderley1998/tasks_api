@@ -1,23 +1,24 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 
 namespace IdentyServer.Domain.Utils
 {
     public class OperationResult<T>
     {
         public T[] Data { get; set; }
-        public EErrorCode? ErrorCode { get; set; }
+        public HttpStatusCode? ErrorCode { get; set; }
         public string ErrorMessage { get; set; }
         public int? TotalRows { get; set; }
 
-        public OperationResult(EErrorCode errorCode, IEnumerable<T> data)
+        public OperationResult(HttpStatusCode errorCode, IEnumerable<T> data)
         {
             Data = data?.ToArray() ?? new T[0];
             TotalRows = Data.Count();
             ErrorCode = errorCode;
         }
 
-        public OperationResult(EErrorCode errorCode, string errorMessage)
+        public OperationResult(HttpStatusCode errorCode, string errorMessage)
         {
             Data = new T[0];
             TotalRows = Data.Length;
@@ -25,7 +26,7 @@ namespace IdentyServer.Domain.Utils
             ErrorMessage = errorMessage;
         }
 
-        public OperationResult(EErrorCode errorCode, int totalRows)
+        public OperationResult(HttpStatusCode errorCode, int totalRows)
         {
             Data = new T[0];
             TotalRows = totalRows;
