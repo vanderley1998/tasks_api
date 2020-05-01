@@ -22,7 +22,7 @@ namespace LubyTasks.IdentyServer.Controllers
         public async Task<object> GetToken([FromBody] GetAuthQuery query)
         {
             var result = await _identityServerHandler.ExecuteAsync(query);
-            var token = Token.GetToken(result.Data.FirstOrDefault());
+            var token = Authentication.GetToken(result.Data.FirstOrDefault());
             return result.GetResult(token);
         }
     }

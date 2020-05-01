@@ -20,6 +20,7 @@ namespace LubyTasks.IdentyServer.Queries.Auth
                 select u.id, u.login, u.password
                 from users u
                 where u.login=@Login and u.password=@Password
+                and u.removed=0
             ";
 
             var conn = handler.IdentityServerContext.Database.GetDbConnection();

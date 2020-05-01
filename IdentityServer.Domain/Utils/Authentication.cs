@@ -6,17 +6,17 @@ using System.Security.Claims;
 
 namespace IdentityServer.Domain.Utils
 {
-    public abstract class Token
+    public static class Authentication
     {
-        public static object GetToken(CredentialUser user)
+        public static object GetToken(this CredentialUser user)
         {
             if (user == null)
                 return null;
 
             var rights = new[]
             {
-                new Claim("id", Convert.ToString(user.Id)),
-                new Claim("login", user.Login)
+                new Claim(nameof(user.Id), Convert.ToString(user.Id)),
+                new Claim(nameof(user.Login), user.Login)
             };
 
             var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("WmZq4t7w!z$C&F)J@NcRfUjXn2r5u8x/"));

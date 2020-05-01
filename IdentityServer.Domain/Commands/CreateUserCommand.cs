@@ -35,21 +35,19 @@ namespace IdentityServer.Domain.Commands
         public async Task<OperationResult<User>> GetError(IdentityServerHandler handler)
         {
             if (string.IsNullOrWhiteSpace(Name))
-                return new OperationResult<User>(EErrorCode.InvalidParams, $"Parameter {nameof(Name) } is null or empty");
+                return new OperationResult<User>(EErrorCode.InvalidParams, $"Parameter {nameof(Name) } is required");
 
             if (Name.Length > Convert.ToInt32(ELimitCaracteres.Sort))
                 return new OperationResult<User>(EErrorCode.InvalidParams, $"Parameter {nameof(Name) } must be only {Convert.ToInt32(ELimitCaracteres.Sort)} caracteres");
 
             if (string.IsNullOrWhiteSpace(Login))
-                return new OperationResult<User>(EErrorCode.InvalidParams, $"Parameter {nameof(Login) } is null or empty");
+                return new OperationResult<User>(EErrorCode.InvalidParams, $"Parameter {nameof(Login) } is required");
 
-            var loginExists = await handler.IdentityServerContext.Users.AnyAsync(u => u.Login == Login);
-
-            if(loginExists)
+            if(await handler.IdentityServerContext.Users.AnyAsync(u => u.Login == Login))
                 return new OperationResult<User>(EErrorCode.InvalidParams, $"{nameof(Login) } {Login} already exists");
 
             if (string.IsNullOrWhiteSpace(Password))
-                return new OperationResult<User>(EErrorCode.InvalidParams, $"Parameter {nameof(Password) } is null or empty");
+                return new OperationResult<User>(EErrorCode.InvalidParams, $"Parameter {nameof(Password) } is required");
 
             return await Task.FromResult<OperationResult<User>>(null);
         }

@@ -2,6 +2,7 @@
 using IdentityServer.Domain.Commands;
 using IdentyServer.Domain.Commands.Auth.Entities;
 using IdentyServer.Domain.Utils;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -25,10 +26,20 @@ namespace IdentyServer.API.Controllers
             return result;
         }
 
-        [HttpDelete]
-        public async Task<OperationResult<User>> Delete([FromBody] RemoveUserCommand command)
+        [Authorize]
+        [HttpPut("{login}")]
+        public async Task<OperationResult<User>> Update(string login, [FromBody] UpdateUserCommand command)
         {
+            command.Login = login;
             var result = await _identityServerHandler.ExecuteAsync(command);
+            return result;
+        }
+
+        [Authorize]
+        [HttpDelete("{login}")]
+        public async Task<OperationResult<User>> Delete(string login)
+        {
+            var result = await _identityServerHandler.ExecuteAsync(new RemoveUserCommand { Login = login });
             return result;
         }
     }

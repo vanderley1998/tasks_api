@@ -10,14 +10,15 @@ namespace LubyTasks
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+        public string Key { get; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            Key = Configuration.GetConnectionString("KeyJwt");
         }
 
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
@@ -40,7 +41,6 @@ namespace LubyTasks
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

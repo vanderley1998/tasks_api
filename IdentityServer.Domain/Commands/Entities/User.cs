@@ -11,5 +11,19 @@ namespace IdentyServer.Domain.Commands.Auth.Entities
         public DateTimeOffset CreateDate { get; set; }
         public DateTimeOffset LastModified { get; set; }
         public bool Removed { get; set; }
+
+        public void SetData(string name, string login, string password)
+        {
+            Name = name ?? Name;
+            Login = login ?? Login;
+            Password = password ?? Password;
+            LastModified = DateTimeOffset.Now;
+        }
+
+        public void Remove()
+        {
+            Removed = true;
+            LastModified = DateTimeOffset.Now;
+        }
     }
 }
