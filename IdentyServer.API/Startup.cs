@@ -1,5 +1,6 @@
 using IdentityServer.API.Filters;
 using IdentityServer.Domain;
+using IdentityServer.Domain.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,7 @@ namespace LubyTasks.IdentyServer
         {
             Configuration = configuration;
             Key = Configuration.GetConnectionString("KeyJwt");
+            Authentication.KeyJwt = Key;
         }
 
         public void ConfigureServices(IServiceCollection services)
