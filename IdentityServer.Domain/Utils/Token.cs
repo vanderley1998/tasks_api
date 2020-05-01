@@ -10,6 +10,9 @@ namespace IdentityServer.Domain.Utils
     {
         public static object GetToken(CredentialUser user)
         {
+            if (user == null)
+                return null;
+
             var rights = new[]
             {
                 new Claim("id", Convert.ToString(user.Id)),

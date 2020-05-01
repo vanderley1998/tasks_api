@@ -1,4 +1,4 @@
-﻿using IdentityServer.Domain.Queries;
+﻿using IdentityServer.Domain;
 using IdentityServer.Domain.Utils;
 using LubyTasks.IdentyServer.Queries.Auth;
 using Microsoft.AspNetCore.Mvc;
@@ -11,24 +11,19 @@ namespace LubyTasks.IdentyServer.Controllers
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        private readonly LubyTasksQueriesHandler _queriesHandler;
+        private readonly IdentityServerHandler _identityServerHandler;
 
-        public AuthController(LubyTasksQueriesHandler queriesHandler)
+        public AuthController(IdentityServerHandler handler)
         {
-            _queriesHandler = queriesHandler;
+            _identityServerHandler = handler;
         }
 
-        [HttpPost()]
+        [HttpPost]
         public async Task<object> GetToken([FromBody] GetAuthQuery query)
         {
-            var result = await _queriesHandler.RunQueryAsync(query);
-
-            if (result.TotalRows == 1)
-            {
-                return Ok(Token.GetToken(result.Data.First()));
-            }
-
-            return Unauthorized();
+            var result = await _identityServerHandler.ExecuteAsync(query);
+            var token = Token.GetToken(result.Data.FirstOrDefault());
+            return result.GetResult(token);
         }
     }
 }
