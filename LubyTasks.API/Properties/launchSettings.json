@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:5301",
-      "sslPort": 44301
+      "applicationUrl": "http://localhost:5000",
+      "sslPort": 44399
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "LubyTasks": {
+    "LubyTasks.IdentyServer": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",
