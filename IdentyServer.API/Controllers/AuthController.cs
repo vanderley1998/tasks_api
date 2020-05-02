@@ -1,7 +1,7 @@
 ﻿using LubyTasks.API.Filters;
 using LubyTasks.Domain;
 using LubyTasks.Domain.Utils;
-using LubyTasks.LubyTasks.Queries.Auth;
+using LubyTasks.LubyTasks.Queries;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Threading.Tasks;

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace LubyTasks.LubyTasks.Queries.Auth
+namespace LubyTasks.LubyTasks.Queries
 {
     public class GetAuthQuery : IOperation<CredentialUser>
     {
@@ -26,12 +26,12 @@ namespace LubyTasks.LubyTasks.Queries.Auth
             var conn = handler.LubyTasksContext.Database.GetDbConnection();
             var result = await conn.QueryAsync<CredentialUser>(sql, new { Login, Password });
             if(result.Count() == 0)
-                return new OperationResult<CredentialUser>(HttpStatusCode.NotFound, result);
+                return new OperationResult<CredentialUser>(HttpStatusCode.Unauthorized, result);
 
             return new OperationResult<CredentialUser>(HttpStatusCode.OK, result);
         }
 
-        public async Task<OperationResult<CredentialUser>> GetError(LubyTasksHandler handler)
+        public async Task<OperationResult<CredentialUser>> GetErrorAsync(LubyTasksHandler handler)
         {
             if (string.IsNullOrWhiteSpace(Login))
                 return new OperationResult<CredentialUser>(HttpStatusCode.BadRequest, $"Parameter {nameof(Login) } is null or empty");

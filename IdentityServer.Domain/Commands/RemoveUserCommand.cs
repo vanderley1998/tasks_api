@@ -25,7 +25,7 @@ namespace LubyTasks.Domain.Commands
             return new OperationResult<User>(HttpStatusCode.OK, result);
         }
 
-        public async Task<OperationResult<User>> GetError(LubyTasksHandler handler)
+        public async Task<OperationResult<User>> GetErrorAsync(LubyTasksHandler handler)
         {
             if (string.IsNullOrWhiteSpace(Login))
                 return new OperationResult<User>(HttpStatusCode.BadRequest, $"Parameter {nameof(Login)} is required");

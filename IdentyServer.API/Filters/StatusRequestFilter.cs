@@ -8,10 +8,6 @@ namespace LubyTasks.API.Filters
 {
     public class StatusRequestFilter : IResultFilter
     {
-        public void OnResultExecuted(ResultExecutedContext context)
-        {
-
-        }
         public void OnResultExecuting(ResultExecutingContext context)
         {
             var result = context.Result as ObjectResult;
@@ -25,6 +21,8 @@ namespace LubyTasks.API.Filters
                 }
             }
         }
+
+        public void OnResultExecuted(ResultExecutedContext context) { }
     }
 
 }

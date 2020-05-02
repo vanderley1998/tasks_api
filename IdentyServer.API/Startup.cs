@@ -32,7 +32,9 @@ namespace LubyTasks.IdentyServer
             });
 
             services.AddScoped<LubyTasksHandler>();
+            services.AddScoped<CurrentUser>();
             services.AddScoped<StatusRequestFilter>();
+            services.AddScoped<CurrentUserFilter>();
             services.AddServerSideBlazor(o => o.DetailedErrors = true);
             services.AddControllers();
             services.AddAuthentication(options =>

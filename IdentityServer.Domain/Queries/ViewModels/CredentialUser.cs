@@ -1,9 +1,8 @@
-﻿using LubyTasks.Domain.Utils;
-using System;
+﻿using System;
 
 namespace LubyTasks.Domain.Queries.ViewModels
 {
-    public class CredentialUser : IViewModel
+    public class CredentialUser
     {
         public int Id { get; set; }
         public string Login { get; set; }

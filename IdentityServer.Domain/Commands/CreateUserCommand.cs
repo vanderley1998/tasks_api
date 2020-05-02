@@ -27,17 +27,17 @@ namespace LubyTasks.Domain.Commands
             if(result == 0)
                 return new OperationResult<User>(HttpStatusCode.NotModified, result);
 
-            return new OperationResult<User>(HttpStatusCode.OK, result);
+            return new OperationResult<User>(HttpStatusCode.Created, result);
 
         }
 
-        public async Task<OperationResult<User>> GetError(LubyTasksHandler handler)
+        public async Task<OperationResult<User>> GetErrorAsync(LubyTasksHandler handler)
         {
             if (string.IsNullOrWhiteSpace(Name))
                 return new OperationResult<User>(HttpStatusCode.BadRequest, $"Parameter {nameof(Name) } is required");
 
             if (Name.Length > Convert.ToInt32(ELimitCaracteres.Sort))
-                return new OperationResult<User>(HttpStatusCode.BadRequest, $"Parameter {nameof(Name) } must be only {Convert.ToInt32(ELimitCaracteres.Sort)} caracteres");
+                return new OperationResult<User>(HttpStatusCode.BadRequest, $"Parameter {nameof(Name) } must have a maximum of {Convert.ToInt32(ELimitCaracteres.Sort)} caracteres");
 
             if (string.IsNullOrWhiteSpace(Login))
                 return new OperationResult<User>(HttpStatusCode.BadRequest, $"Parameter {nameof(Login) } is required");
