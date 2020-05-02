@@ -35,7 +35,13 @@ namespace LubyTasks.IdentyServer
             services.AddScoped<StatusRequestFilter>();
             services.AddScoped<CurrentUserFilter>();
             services.AddServerSideBlazor(o => o.DetailedErrors = true);
-            services.AddControllers();
+
+            services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.IgnoreNullValues = true;
+                });
+
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = "JwtBearer";
