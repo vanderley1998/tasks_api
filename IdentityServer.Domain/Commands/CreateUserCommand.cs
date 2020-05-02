@@ -23,10 +23,6 @@ namespace LubyTasks.Domain.Commands
 
             handler.LubyTasksContext.Users.Add(user);
             var result = await handler.LubyTasksContext.SaveChangesAsync();
-            
-            if(result == 0)
-                return new OperationResult<User>(HttpStatusCode.NotModified, result);
-
             return new OperationResult<User>(HttpStatusCode.Created, result);
 
         }

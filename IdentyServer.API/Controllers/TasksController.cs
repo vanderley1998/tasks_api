@@ -51,5 +51,13 @@ namespace LubyTasks.API.Controllers
             var result = await _lubyTasksHandler.ExecuteAsync(command);
             return result;
         }
+        
+        [HttpPatch("{id}")]
+        public async Task<OperationResult<Domain.Commands.Entities.Task>> ChangeStatus(int id, [FromBody]ChangeStatusTaskCommand command)
+        {
+            command.Id = id;
+            var result = await _lubyTasksHandler.ExecuteAsync(command);
+            return result;
+        }
     }
 }

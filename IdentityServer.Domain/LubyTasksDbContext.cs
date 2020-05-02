@@ -8,7 +8,7 @@ namespace LubyTasks.Domain
     public class LubyTasksDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
-        public DbSet<Task> Actions { get; set; }
+        public DbSet<Task> Tasks { get; set; }
 
         public LubyTasksDbContext(DbContextOptions<LubyTasksDbContext> options) : base(options) { }
 

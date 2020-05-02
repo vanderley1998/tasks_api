@@ -19,9 +19,6 @@ namespace LubyTasks.Domain.Commands
             user.SetData(Name, Login, Password);
             var result = await handler.LubyTasksContext.SaveChangesAsync();
 
-            if (result == 0)
-                return new OperationResult<User>(HttpStatusCode.NotModified, result);
-
             return new OperationResult<User>(HttpStatusCode.OK, result);
         }
 

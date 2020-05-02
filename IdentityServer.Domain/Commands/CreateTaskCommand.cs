@@ -18,13 +18,9 @@ namespace LubyTasks.Domain.Commands
                 UserId = handler.CurrentUser.Id
             };
 
-            handler.LubyTasksContext.Actions.Add(task);
+            handler.LubyTasksContext.Tasks.Add(task);
             var result = await handler.LubyTasksContext.SaveChangesAsync();
-            if (result == 0)
-                return new OperationResult<Entities.Task>(HttpStatusCode.NotModified, result);
-
             return new OperationResult<Entities.Task>(HttpStatusCode.Created, result);
-
         }
 
         public async Task<OperationResult<Entities.Task>> GetErrorAsync(LubyTasksHandler handler)
