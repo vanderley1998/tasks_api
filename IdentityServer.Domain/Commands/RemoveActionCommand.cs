@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LubyTasks.Domain.Commands
 {
-    public class DeleteActionCommand : IOperation<Entities.Action>
+    public class RemoveActionCommand : IOperation<Entities.Action>
     {
         public int Id { get; set; }
 
