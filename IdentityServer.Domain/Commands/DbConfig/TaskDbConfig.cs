@@ -6,9 +6,9 @@ using System;
 
 namespace LubyTasks.Domain.Commands.DbConfig
 {
-    public class ActionDbConfig : IEntityTypeConfiguration<Entities.Action>
+    public class TaskDbConfig : IEntityTypeConfiguration<Entities.Task>
     {
-        public void Configure(EntityTypeBuilder<Entities.Action> builder)
+        public void Configure(EntityTypeBuilder<Entities.Task> builder)
         {
             var sortLength = Convert.ToInt32(ELimitCaracteres.Sort);
             var longLength = Convert.ToInt32(ELimitCaracteres.Long);

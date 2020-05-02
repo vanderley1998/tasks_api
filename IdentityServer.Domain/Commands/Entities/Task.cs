@@ -3,7 +3,7 @@ using System;
 
 namespace LubyTasks.Domain.Commands.Entities
 {
-    public class Action
+    public class Task
     {
         public int Id { get; set; }
         public string Title { get; set; }

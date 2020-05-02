@@ -39,7 +39,7 @@ namespace LubyTasks.LubyTasks.Queries
             if (string.IsNullOrWhiteSpace(Password))
                 return new OperationResult<CredentialUser>(HttpStatusCode.BadRequest, $"Parameter {nameof(Password) } is null or empty");
 
-            return await Task.FromResult<OperationResult<CredentialUser>>(null);
+            return await System.Threading.Tasks.Task.FromResult<OperationResult<CredentialUser>>(null);
         }
     }
 }
