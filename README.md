@@ -102,15 +102,9 @@ Para ter acesso ao banco de dados, a `connectionSctring` dentro do arquivo `apps
   }
 }
 ```
+#### 🙌 Agora é só executar o projeto
 
-
-
-
-
-
-
-
-
-
-
-
+### Contato
+Vanderley Sousa
+* E-mail: vanderley_1998@hotmail.com.br
+* Skype: vanderley_1998@hotmail.com.br
