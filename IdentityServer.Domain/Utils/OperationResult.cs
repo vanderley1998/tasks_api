@@ -7,30 +7,28 @@ namespace LubyTasks.Domain.Utils
     public class OperationResult<T>
     {
         public T[] Data { get; set; }
-        public HttpStatusCode? ErrorCode { get; set; }
+        public HttpStatusCode? StatusCode { get; set; }
         public string ErrorMessage { get; set; }
         public int? TotalRows { get; set; }
 
-        public OperationResult(HttpStatusCode errorCode, IEnumerable<T> data)
+        public OperationResult(HttpStatusCode statusCode, IEnumerable<T> data)
         {
-            Data = data?.ToArray() ?? new T[0];
-            TotalRows = Data.Count();
-            ErrorCode = errorCode;
+            Data = data?.ToArray();
+            TotalRows = Data?.Count();
+            StatusCode = statusCode;
         }
 
-        public OperationResult(HttpStatusCode errorCode, string errorMessage)
+        public OperationResult(HttpStatusCode statusCode, string errorMessage)
         {
-            Data = new T[0];
-            TotalRows = Data.Length;
-            ErrorCode = errorCode;
+            TotalRows = Data?.Length;
+            StatusCode = statusCode;
             ErrorMessage = errorMessage;
         }
 
-        public OperationResult(HttpStatusCode errorCode, int totalRows)
+        public OperationResult(HttpStatusCode statusCode, int totalRows)
         {
-            Data = new T[0];
             TotalRows = totalRows;
-            ErrorCode = errorCode;
+            StatusCode = statusCode;
         }
 
         public object GetResult(object data)
@@ -39,7 +37,7 @@ namespace LubyTasks.Domain.Utils
             {
                 TotalRows,
                 data,
-                ErrorCode,
+                StatusCode,
                 ErrorMessage
             };
         }

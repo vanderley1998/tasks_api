@@ -37,5 +37,12 @@ namespace LubyTasks.API.Controllers
             var result = await _lubyTasksHandler.ExecuteAsync(command);
             return result;
         }
+
+        [HttpDelete("{id}")]
+        public async Task<OperationResult<Domain.Commands.Entities.Action>> Delete(int id)
+        {
+            var result = await _lubyTasksHandler.ExecuteAsync(new DeleteActionCommand() { Id = id});
+            return result;
+        }
     }
 }
