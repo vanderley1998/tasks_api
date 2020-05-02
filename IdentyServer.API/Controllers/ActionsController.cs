@@ -5,7 +5,6 @@ using LubyTasks.Domain.Queries;
 using LubyTasks.Domain.Utils;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Threading.Tasks;
 
 namespace LubyTasks.API.Controllers
@@ -42,6 +41,14 @@ namespace LubyTasks.API.Controllers
         public async Task<OperationResult<Domain.Commands.Entities.Action>> Delete(int id)
         {
             var result = await _lubyTasksHandler.ExecuteAsync(new RemoveActionCommand() { Id = id});
+            return result;
+        }
+        
+        [HttpPut("{id}")]
+        public async Task<OperationResult<Domain.Commands.Entities.Action>> Update(int id, [FromBody]UpdateActionCommand command)
+        {
+            command.Id = id;
+            var result = await _lubyTasksHandler.ExecuteAsync(command);
             return result;
         }
     }
