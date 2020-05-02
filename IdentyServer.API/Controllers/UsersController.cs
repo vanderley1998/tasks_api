@@ -5,6 +5,8 @@ using LubyTasks.Domain.Commands.Auth.Entities;
 using LubyTasks.Domain.Utils;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace LubyTasks.API.Controllers
@@ -22,6 +24,8 @@ namespace LubyTasks.API.Controllers
         }
 
         [HttpPost]
+        [SwaggerResponse((int)HttpStatusCode.Created, Description = "User successfully created")]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, Type = typeof(OperationResult<>), Description = "Request parameters are not valid")]
         public async Task<OperationResult<User>> Post([FromBody] CreateUserCommand command)
         {
             var result = await _lubyTasksHandler.ExecuteAsync(command);
@@ -30,6 +34,8 @@ namespace LubyTasks.API.Controllers
 
         [Authorize]
         [HttpPut("{login}")]
+        [SwaggerResponse((int)HttpStatusCode.OK, Description = "User successfully updated")]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, Type = typeof(OperationResult<>), Description = "Request parameters are not valid")]
         public async Task<OperationResult<User>> Update(string login, [FromBody] UpdateUserCommand command)
         {
             command.Login = login;
@@ -39,6 +45,9 @@ namespace LubyTasks.API.Controllers
 
         [Authorize]
         [HttpDelete("{login}")]
+        [SwaggerResponse((int)HttpStatusCode.OK, Description = "User successfully removed")]
+        [SwaggerResponse((int)HttpStatusCode.BadRequest, Type = typeof(OperationResult<>), Description = "Required parameter is missing")]
+        [SwaggerResponse((int)HttpStatusCode.NotFound, Type = typeof(OperationResult<>), Description = "User was not found")]
         public async Task<OperationResult<User>> Delete(string login)
         {
             var result = await _lubyTasksHandler.ExecuteAsync(new RemoveUserCommand { Login = login });
