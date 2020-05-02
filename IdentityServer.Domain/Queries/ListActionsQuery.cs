@@ -10,7 +10,7 @@ namespace LubyTasks.Domain.Queries
         public async Task<OperationResult<ViewModels.Action>> ExecuteOperationAsync(LubyTasksHandler handler)
         {
             var sql = @"
-                select id, description, concluded, id_user, create_date, last_modified
+                select id, title, description, concluded, id_user, create_date
                 from actions a where a.removed=0
             ";
 

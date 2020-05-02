@@ -21,7 +21,6 @@ namespace LubyTasks.IdentyServer
         {
             Configuration = configuration;
             Key = Configuration.GetConnectionString("KeyJwt");
-            Authentication.KeyJwt = Key;
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -62,6 +61,9 @@ namespace LubyTasks.IdentyServer
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
+            Authentication.KeyJwt = Key;
 
             app.UseHttpsRedirection();
 
