@@ -8,7 +8,7 @@ create table dbo.users
 (
 	id int identity(1,1) primary key not null,
 	[name] nvarchar(150) collate Latin1_General_CS_AS not null,
-	[login] nvarchar(512) collate Latin1_General_CS_AS not null,
+	[login] nvarchar(50) collate Latin1_General_CS_AS not null,
 	[password] nvarchar(512) collate Latin1_General_CS_AS not null,
 	create_date datetimeoffset not null default getdate(),
 	last_modified datetimeoffset not null default getdate(),
@@ -22,7 +22,7 @@ create table tasks
 (
 	id int identity(1,1) primary key not null,
 	[title] nvarchar(150) collate Latin1_General_CS_AS not null,
-	[description] nvarchar(4000) collate Latin1_General_CS_AS not null,
+	[description] nvarchar(4000) collate Latin1_General_CS_AS,
 	concluded bit not null default 1,
 	[id_user] int not null,
 	create_date datetimeoffset not null default getdate(),

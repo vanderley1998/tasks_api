@@ -18,13 +18,12 @@ namespace LubyTasks.Domain.Commands
             {
                 Name = Name,
                 Login = Login,
-                Password = Password
+                Password = Password.GetSHA512()
             };
 
             handler.LubyTasksContext.Users.Add(user);
             var result = await handler.LubyTasksContext.SaveChangesAsync();
             return new OperationResult<User>(HttpStatusCode.Created, result);
-
         }
 
         public async Task<OperationResult<User>> GetErrorAsync(LubyTasksHandler handler)

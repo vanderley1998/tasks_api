@@ -18,7 +18,7 @@ namespace LubyTasks.Domain.Commands.DbConfig
 
             builder.Property(u => u.Id).HasColumnName("id").HasColumnType("int");
             builder.Property(u => u.Name).HasColumnName("name").HasMaxLength(sortLength).HasColumnType($"nvarchar({sortLength})").IsRequired();
-            builder.Property(u => u.Login).HasColumnName("login").HasMaxLength(512).HasColumnType("nvarchar(512)").IsRequired();
+            builder.Property(u => u.Login).HasColumnName("login").HasMaxLength(50).HasColumnType("nvarchar(50)").IsRequired();
             builder.Property(u => u.Password).HasColumnName("password").HasMaxLength(512).HasColumnType("nvarchar(512)").IsRequired();
             builder.Property(u => u.CreateDate).HasColumnName("create_date").HasColumnType("datetimeoffset").HasDefaultValue(DateTimeOffset.Now);
             builder.Property(u => u.LastModified).HasColumnName("last_modified").HasColumnType("datetimeoffset").HasDefaultValue(DateTimeOffset.Now);

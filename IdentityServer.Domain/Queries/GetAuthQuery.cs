@@ -24,11 +24,11 @@ namespace LubyTasks.LubyTasks.Queries
             ";
 
             var conn = handler.LubyTasksContext.Database.GetDbConnection();
-            var result = await conn.QueryAsync<CredentialUser>(sql, new { Login, Password });
+            var result = await conn.QueryAsync<CredentialUser>(sql, new { Login, Password = Password.GetSHA512() });
             if(result.Count() == 0)
                 return new OperationResult<CredentialUser>(HttpStatusCode.Unauthorized, result);
 
-            return new OperationResult<CredentialUser>(HttpStatusCode.OK, result);
+            return new OperationResult<CredentialUser>(HttpStatusCode.Created, result);
         }
 
         public async Task<OperationResult<CredentialUser>> GetErrorAsync(LubyTasksHandler handler)
