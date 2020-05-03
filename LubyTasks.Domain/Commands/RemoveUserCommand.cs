@@ -9,11 +9,11 @@ namespace LubyTasks.Domain.Commands
 {
     public class RemoveUserCommand : IOperation<User>
     {
-        public string Login { get; set; }
         public async Task<OperationResult<User>> ExecuteOperationAsync(LubyTasksHandler handler)
         {
             var user = await handler.LubyTasksContext.Users
-                .Where(u => u.Login == Login)
+                .Where(u => u.Id == handler.CurrentUser.Id)
+                .Include(u => u.Tasks)
                 .FirstOrDefaultAsync();
 
             user.Remove();
@@ -24,11 +24,8 @@ namespace LubyTasks.Domain.Commands
 
         public async Task<OperationResult<User>> GetErrorAsync(LubyTasksHandler handler)
         {
-            if (string.IsNullOrWhiteSpace(Login))
-                return new OperationResult<User>(HttpStatusCode.BadRequest, $"Parameter {nameof(Login)} is required");
-
-            if (!(await handler.LubyTasksContext.Users.AnyAsync(u => u.Login == Login)))
-                return new OperationResult<User>(HttpStatusCode.NotFound, $"User with {nameof(Login)} {Login} was not found");
+            if (string.IsNullOrWhiteSpace(handler.CurrentUser.Login))
+                return new OperationResult<User>(HttpStatusCode.Unauthorized, $"There's no opened session. Please, get the token and try again");
 
             return await Task.FromResult<OperationResult<User>>(null);
         }

@@ -23,7 +23,9 @@ namespace LubyTasks.Domain.Commands.DbConfig
             builder.Property(u => u.CreateDate).HasColumnName("create_date").HasColumnType("datetimeoffset").HasDefaultValue(DateTimeOffset.Now);
             builder.Property(u => u.LastModified).HasColumnName("last_modified").HasColumnType("datetimeoffset").HasDefaultValue(DateTimeOffset.Now);
             builder.Property(u => u.Removed).HasColumnName("removed").HasColumnType("bit");
-            
+
+            builder.HasMany(u => u.Tasks);
+
             builder.HasQueryFilter(u => !u.Removed);
         }
     }

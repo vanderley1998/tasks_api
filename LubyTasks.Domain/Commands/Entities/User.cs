@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LubyTasks.Domain.Commands.Entities;
+using System;
+using System.Collections.Generic;
 
 namespace LubyTasks.Domain.Commands.Auth.Entities
 {
@@ -8,6 +10,7 @@ namespace LubyTasks.Domain.Commands.Auth.Entities
         public string Name { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
+        public List<Task> Tasks { get; set; }
         public DateTimeOffset CreateDate { get; set; }
         public DateTimeOffset LastModified { get; set; }
         public bool Removed { get; set; }
@@ -17,17 +20,20 @@ namespace LubyTasks.Domain.Commands.Auth.Entities
             CreateDate = DateTimeOffset.Now;
             LastModified = DateTimeOffset.Now;
         }
-        public void SetData(string name, string login, string password)
+        public void SetData(string name, string login)
         {
             Name = name ?? Name;
             Login = login ?? Login;
-            Password = password ?? Password;
             LastModified = DateTimeOffset.Now;
         }
 
         public void Remove()
         {
             Removed = true;
+            foreach(var task in Tasks)
+            {
+                task.Remove();
+            }
             LastModified = DateTimeOffset.Now;
         }
     }

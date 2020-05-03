@@ -45,25 +45,25 @@ namespace LubyTasks.API.Controllers
             return result;
         }
 
+        [HttpPut("session")]
         [Authorize]
-        [HttpPut("{login}")]
         [SwaggerResponse((int)HttpStatusCode.OK, Description = "User successfully updated")]
         [SwaggerResponse((int)HttpStatusCode.BadRequest, Type = typeof(OperationResult<>), Description = "Request parameters are not valid")]
-        public async Task<OperationResult<User>> Update(string login, [FromBody] UpdateUserCommand command)
+        [SwaggerResponse((int)HttpStatusCode.Unauthorized, Type = typeof(OperationResult<>), Description = "User was not updated because is not logged")]
+        public async Task<OperationResult<User>> Update([FromBody] UpdateUserCommand command)
         {
-            command.Login = login;
             var result = await _lubyTasksHandler.ExecuteAsync(command);
             return result;
         }
 
         [Authorize]
-        [HttpDelete("{login}")]
+        [HttpDelete("session")]
         [SwaggerResponse((int)HttpStatusCode.OK, Description = "User successfully removed")]
         [SwaggerResponse((int)HttpStatusCode.BadRequest, Type = typeof(OperationResult<>), Description = "Required parameter is missing")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, Type = typeof(OperationResult<>), Description = "User was not found")]
-        public async Task<OperationResult<User>> Delete(string login)
+        public async Task<OperationResult<User>> Delete()
         {
-            var result = await _lubyTasksHandler.ExecuteAsync(new RemoveUserCommand { Login = login });
+            var result = await _lubyTasksHandler.ExecuteAsync(new RemoveUserCommand());
             return result;
         }
     }
