@@ -16,7 +16,7 @@ O token pode ser gerado na URL `https://localhost:44399/auth/` passando o seguin
 ```
 
 ## Response da requisição HTTP
-Todos os endpoints retornam um mesmo tipo de objeto, sendo:
+Uma vez autenticado da API, todos os endpoints retornam um mesmo tipo de objeto, sendo:
 ```
 {
   "data": [
@@ -102,9 +102,21 @@ Para ter acesso ao banco de dados, a `connectionSctring` dentro do arquivo `apps
   }
 }
 ```
-#### 🙌 Agora é só executar o projeto
+#### 3. Agora é só executar o projeto
 
-### Contato
+## Client Web
+Caso, queira testar a API utilizando um client Web criado em Angular 9:
+* [Clien Web em Angular](https://github.com/vanderley1998/tasks_client)
+
+### A configuração não tem segredo:
+1. Tenha instalado o [Node.js](https://nodejs.org/en/) no computador.
+2. Tenha instalado o [Angular CLI](https://cli.angular.io/) computador.
+3. Na pasta que contém o arquivo `package.json` abra o console e role o comando `npm install`. Pode demorar um pouquinho para baixar todas as dependências.
+4. Verifique se a url da API está correta no arquivo `environment.ts`
+5. `npm start` para iniciar a aplicação.
+
+### 😊
+
+## Contato
 Vanderley Sousa
-* E-mail: vanderley_1998@hotmail.com.br
-* Skype: vanderley_1998@hotmail.com.br
+* E-mail & Skype: vanderley_1998@hotmail.com.br
