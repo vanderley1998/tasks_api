@@ -21,18 +21,7 @@ Uma vez autenticado da API, todos os endpoints retornam um mesmo tipo de objeto,
 {
   "data": [
     {
-      "id": "int",
-      "title": "string",
-      "description": "string",
-      "concluded": true,
-      "user": {
-        "id": "int",
-        "name": "string"
-      },
-      "userName": "string",
-      "createDate": "datetimeoffset",
-      "lastModified": "datetimeoffset",
-      "removed": "bool"
+      ...
     }
   ],
   "statusCode": "int",
