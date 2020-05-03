@@ -16,7 +16,7 @@ namespace LubyTasks.Domain.Queries
             var sql = @"
                 select u.id, u.name, u.login
                 from users u
-                where u.id=@CurrentUserId
+                where u.id=@CurrentUserId and u.removed=0
             ";
 
             var conn = handler.LubyTasksContext.Database.GetDbConnection();
