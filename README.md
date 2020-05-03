@@ -16,7 +16,7 @@ O token pode ser gerado na URL `https://localhost:44399/auth/` passando o seguin
 ```
 
 ## Response da requisição HTTP
-Todos os endpoints retornam um mesmo tipo de objeto, sendo:
+Uma vez autenticado da API, todos os endpoints retornam um mesmo tipo de objeto, sendo:
 ```
 {
   "data": [
