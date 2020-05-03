@@ -38,7 +38,7 @@ Uma vez autenticado da API, todos os endpoints retornam um mesmo tipo de objeto,
 `totalRows`: Quantidade de items dentro da propriedade `data`.
 
 ## Documentação da API
-Toda a documentação da API, mapeamento de `endpoints` e `schemas` foi feita com a ferramenta [Swagger](https://swagger.io/) e pode ser acessada pela URL https://localhost:44399/.
+Toda a documentação da API, mapeamento de `endpoints` e `schemas` foram feitas com a ferramenta [Swagger](https://swagger.io/) e pode ser acessada pela URL https://localhost:44399/.
 
 ### Configuração de ambiente
 
