@@ -2,17 +2,20 @@
 using LubyTasks.Domain;
 using LubyTasks.Domain.Commands;
 using LubyTasks.Domain.Commands.Auth.Entities;
+using LubyTasks.Domain.Queries;
 using LubyTasks.Domain.Utils;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 using System.Threading.Tasks;
+using UserQuery = LubyTasks.Domain.Queries.ViewModels.User;
 
 namespace LubyTasks.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [ServiceFilter(typeof(CurrentUserFilter))]
     [ServiceFilter(typeof(StatusRequestFilter))]
     public class UsersController : ControllerBase
     {
@@ -21,6 +24,16 @@ namespace LubyTasks.API.Controllers
         public UsersController(LubyTasksHandler handler)
         {
             _lubyTasksHandler = handler;
+        }
+
+        [Authorize]
+        [HttpGet("session")]
+        [SwaggerResponse((int)HttpStatusCode.OK, Description = "Get user successfully")]
+        [SwaggerResponse((int)HttpStatusCode.Unauthorized, Type = typeof(OperationResult<>), Description = "Request parameters are not valid")]
+        public async Task<OperationResult<UserQuery>> Get()
+        {
+            var result = await _lubyTasksHandler.ExecuteAsync(new GetUserQuery());
+            return result;
         }
 
         [HttpPost]

@@ -12,8 +12,9 @@ namespace LubyTasks.Domain.Utils
 
         public void GetTokenData(string token)
         {
+            var tkn = token.Replace("Bearer ", "");
             var jwtHandler = new JwtSecurityTokenHandler();
-            var currentUser = jwtHandler.ReadJwtToken(token.Replace("Bearer ", ""));
+            var currentUser = jwtHandler.ReadJwtToken(tkn);
             var claims = currentUser.Claims.ToArray();
 
             Id = Convert.ToInt32(claims[0].Value);

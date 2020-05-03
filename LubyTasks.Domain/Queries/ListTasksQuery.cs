@@ -4,12 +4,15 @@ using LubyTasks.Domain.Utils;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
 using System.Threading.Tasks;
+using Task = System.Threading.Tasks.Task;
+using TaskVW = LubyTasks.Domain.Queries.ViewModels.Task;
+
 namespace LubyTasks.Domain.Queries
 {
-    public class ListTasksQuery : IOperation<ViewModels.Task>
+    public class ListTasksQuery : IOperation<TaskVW>
     {
 
-        public async Task<OperationResult<ViewModels.Task>> ExecuteOperationAsync(LubyTasksHandler handler)
+        public async Task<OperationResult<TaskVW>> ExecuteOperationAsync(LubyTasksHandler handler)
         {
             var sql = @"
                 select a.id, a.title, a.description, a.concluded, a.create_date, u.id, u.name
@@ -18,7 +21,7 @@ namespace LubyTasks.Domain.Queries
             ";
 
             var conn = handler.LubyTasksContext.Database.GetDbConnection();
-            var result = await conn.QueryAsync<ViewModels.Task, User, ViewModels.Task>(sql, (action, user) =>
+            var result = await conn.QueryAsync<TaskVW, User, TaskVW>(sql, (action, user) =>
             {
                 action.User = user;
                 return action;
@@ -26,12 +29,12 @@ namespace LubyTasks.Domain.Queries
             new { CurrentUserId = handler.CurrentUser.Id },
             splitOn: "id"
             );
-            return new OperationResult<ViewModels.Task>(HttpStatusCode.OK, result);
+            return new OperationResult<TaskVW>(HttpStatusCode.OK, result);
         }
 
-        public async Task<OperationResult<ViewModels.Task>> GetErrorAsync(LubyTasksHandler handler)
+        public async Task<OperationResult<TaskVW>> GetErrorAsync(LubyTasksHandler handler)
         {
-            return await System.Threading.Tasks.Task.FromResult<OperationResult<ViewModels.Task>>(null);
+            return await Task.FromResult<OperationResult<TaskVW>>(null);
         }
     }
 }

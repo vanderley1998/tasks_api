@@ -17,7 +17,7 @@ namespace LubyTasks.API.Filters
         {
             foreach(var item in context.HttpContext.Request.Headers)
             {
-                if(item.Key == HttpRequestHeader.Authorization.ToString())
+                if(item.Key == HttpRequestHeader.Authorization.ToString() && !string.IsNullOrEmpty(item.Value))
                 {
                     _currentUser.GetTokenData(item.Value);
                     return;
