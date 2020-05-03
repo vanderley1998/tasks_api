@@ -12,6 +12,11 @@ namespace LubyTasks.Domain.Commands.Auth.Entities
         public DateTimeOffset LastModified { get; set; }
         public bool Removed { get; set; }
 
+        public User()
+        {
+            CreateDate = DateTimeOffset.Now;
+            LastModified = DateTimeOffset.Now;
+        }
         public void SetData(string name, string login, string password)
         {
             Name = name ?? Name;

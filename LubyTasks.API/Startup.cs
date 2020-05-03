@@ -18,6 +18,8 @@ namespace LubyTasks.IdentyServer
         public IConfiguration Configuration { get; }
         public string Key { get; }
 
+        private readonly string AllowSpecificOrigins = "dev";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -101,6 +103,16 @@ namespace LubyTasks.IdentyServer
                 });
                 c.EnableAnnotations();
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: AllowSpecificOrigins, builder =>
+                {
+                    builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -122,6 +134,7 @@ namespace LubyTasks.IdentyServer
 
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseCors(AllowSpecificOrigins);
             app.UseAuthentication();
             app.UseAuthorization();
 

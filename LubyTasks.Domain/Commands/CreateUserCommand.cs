@@ -38,7 +38,7 @@ namespace LubyTasks.Domain.Commands
                 return new OperationResult<User>(HttpStatusCode.BadRequest, $"Parameter {nameof(Login) } is required");
 
             if(await handler.LubyTasksContext.Users.AnyAsync(u => u.Login == Login))
-                return new OperationResult<User>(HttpStatusCode.BadRequest, $"{nameof(Login) } {Login} already exists");
+                return new OperationResult<User>(HttpStatusCode.Conflict, $"{nameof(Login) } {Login} already exists");
 
             if (string.IsNullOrWhiteSpace(Password))
                 return new OperationResult<User>(HttpStatusCode.BadRequest, $"Parameter {nameof(Password) } is required");

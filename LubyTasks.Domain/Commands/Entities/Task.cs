@@ -15,6 +15,12 @@ namespace LubyTasks.Domain.Commands.Entities
         public DateTimeOffset LastModified { get; set; }
         public bool Removed { get; set; }
 
+        public Task()
+        {
+            CreateDate = DateTimeOffset.Now;
+            LastModified = DateTimeOffset.Now;
+        }
+
         public void SetData(string title, string description)
         {
             Title = title ?? Title;

@@ -31,12 +31,12 @@ namespace LubyTasks.Domain.Utils
             StatusCode = statusCode;
         }
 
-        public object GetResult(object data)
+        public object GetTokenResult(object token)
         {
             return new
             {
                 TotalRows,
-                data,
+                Data = new[] { token },
                 StatusCode,
                 ErrorMessage
             };

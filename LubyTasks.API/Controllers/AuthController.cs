@@ -2,6 +2,7 @@
 using LubyTasks.Domain;
 using LubyTasks.Domain.Utils;
 using LubyTasks.LubyTasks.Queries;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace LubyTasks.Controllers
         {
             var result = await _lubyTasksHandler.ExecuteAsync(query);
             var token = Authentication.GetToken(result.Data.FirstOrDefault());
-            return result.GetResult(token);
+            return result.GetTokenResult(token);
         }
     }
 }
