@@ -2,7 +2,7 @@
 Projeto de gerenciamento simples de tarefas com autenticação de usuários.
 
 ## Arquitetura
-Baseada na arquiterura [CQRS](https://docs.microsoft.com/pt-br/azure/architecture/patterns/cqrs), somente tendo implementado `Commands` e `Queries`, deixando de lado emissão de eventos e etc.
+Baseada na arquiterura [CQRS](https://docs.microsoft.com/pt-br/azure/architecture/patterns/cqrs), somente sendo implementado `Commands` e `Queries`.
 
 ## Autenticação
 Autenticação com token [JWT](https://jwt.io/introduction/).
@@ -38,7 +38,7 @@ Uma vez autenticado da API, todos os endpoints retornam um mesmo tipo de objeto,
 `totalRows`: Quantidade de items dentro da propriedade `data`.
 
 ## Documentação da API
-Toda a documentação da API, mapeamento de `endpoints` e `schemas` esta disponível por meio da ferramente [Swagger](https://swagger.io/) que pode ser acessada pela URL https://localhost:44399/.
+Toda a documentação da API, mapeamento de `endpoints` e `schemas` foi feita com a ferramenta [Swagger](https://swagger.io/) e pode ser acessada pela URL https://localhost:44399/.
 
 ### Configuração de ambiente
 
@@ -82,7 +82,7 @@ create table tasks
 go
 ```
 #### 2. Configuração da API
-Para ter acesso ao banco de dados, a `connectionSctring` dentro do arquivo `appsettings.Development.json` deverá ser alterada conforme o `User` e `Password` usados para acessar o banco.
+Para ter acesso ao banco de dados, a `connectionString` dentro do arquivo `appsettings.Development.json` deverá ser alterada conforme o `User` e `Password` usados para acessar o banco.
 ```
 {
   "ConnectionStrings": {
@@ -94,18 +94,16 @@ Para ter acesso ao banco de dados, a `connectionSctring` dentro do arquivo `apps
 #### 3. Agora é só executar o projeto
 
 ## Client Web
-Caso, queira testar a API utilizando um client Web criado em Angular 9:
+Caso, queira testar a API utilizando um client Web criado em Angular 9, segue o repositório:
 * [Clien Web em Angular](https://github.com/vanderley1998/tasks_client)
 
-### A configuração não tem segredo:
+### A configuração do client não tem segredo:
 1. Tenha instalado o [Node.js](https://nodejs.org/en/) no computador.
 2. Tenha instalado o [Angular CLI](https://cli.angular.io/) computador.
 3. Na pasta que contém o arquivo `package.json` abra o console e role o comando `npm install`. Pode demorar um pouquinho para baixar todas as dependências.
 4. Verifique se a url da API está correta no arquivo `environment.ts`
 5. `npm start` para iniciar a aplicação.
 
-### 😊
-
-## Contato
+## 😀 Contato
 Vanderley Sousa
 * E-mail & Skype: vanderley_1998@hotmail.com.br
