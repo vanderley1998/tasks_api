@@ -95,7 +95,7 @@ Para ter acesso ao banco de dados, a `connectionString` dentro do arquivo `appse
 
 ## Client Web
 Caso, queira testar a API utilizando um client Web criado em Angular 9, segue o repositório:
-* [Clien Web em Angular](https://github.com/vanderley1998/tasks_client)
+* [Client Web em Angular](https://github.com/vanderley1998/tasks_client)
 
 ### A configuração do client não tem segredo:
 1. Tenha instalado o [Node.js](https://nodejs.org/en/) no computador.
